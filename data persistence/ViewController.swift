@@ -21,15 +21,17 @@ class ViewController: UIViewController {
         let personName = myTextField1.text
         let personPhone = myTextField2.text
         
-        UserDefaults.standard.set(myTextField1.text, forKey: "name")  //storing values
-        UserDefaults.standard.set(myTextField2.text, forKey: "phone")
+        UserDefaults.standard.set(myTextField1.text, forKey: "name")  //storing values for name
+        UserDefaults.standard.set(myTextField2.text, forKey: "phone") //storing values for phone number
         print (personName!)
         print (personPhone!)
         
-        if ((newName == personName) && (newPhone == personPhone)){
+        if ((newName == personName) && (newPhone == personPhone))
+        {
             myLabel.text = ("Info already exists")
         }
-        else if ((newName == personName!) && (newPhone != personPhone!)){
+        else if ((newName == personName!) && (newPhone != personPhone!))
+        {
             myLabel.text = ("info updated")
             saveButton.setTitle("update", for: .normal)
         }
@@ -40,17 +42,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newName = UserDefaults.standard.value(forKey: "name") as! String //retrieving Value
+        newName = UserDefaults.standard.value(forKey: "name") as! String //retrieving name
         print(newName)
-        newPhone = UserDefaults.standard.value(forKey: "phone") as! String
+        newPhone = UserDefaults.standard.value(forKey: "phone") as! String //retrieving phone number
         print(newPhone)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         self.view.endEditing(true)
     }
     
-    @IBAction func exit(_ sender: Any) {
+    @IBAction func exit(_ sender: Any)
+    {
         self.view.endEditing(true)
     }
     }
